@@ -10,7 +10,7 @@ public class MasterInfo : MonoBehaviour
     [SerializeField] GameObject DistanceDisplay;
 
     void Start(){
-                coinDisplay.GetComponent<TMPro.TMP_Text>().text = "COINS: " 0;
+                coinDisplay.GetComponent<TMPro.TMP_Text>().text = "COINS: " + 0;
 
     }
     void Update()
