@@ -1,21 +1,26 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
-using System.Collections;
+using UnityEngine.UI; // Add this for Image
 
 public class ShopControl : MonoBehaviour
 {
     public TMP_Text feedbackText;
     public TMP_Text coinDisplay;
 
+    public GameObject cityLockIcon;
+    public GameObject mountainsLockIcon;
+
     private int cityCost = 3;
     private int mountainsCost = 50;
-
-    // Removed PlayerPrefs.DeleteAll() so coins won't reset every start
 
     void Start()
     {
         coinDisplay.text = "Coins: " + MasterInfo.coinCount;
+
+        // 👇 Update lock icon visibility
+        cityLockIcon.SetActive(!LevelSelector.IsLevelUnlocked("City"));
+        mountainsLockIcon.SetActive(!LevelSelector.IsLevelUnlocked("Mountains"));
     }
 
     public void SelectGameLevel()
@@ -26,15 +31,15 @@ public class ShopControl : MonoBehaviour
 
     public void SelectCityLevel()
     {
-        HandleLevelSelection("City", cityCost);
+        HandleLevelSelection("City", cityCost, cityLockIcon);
     }
 
     public void SelectMountainsLevel()
     {
-        HandleLevelSelection("Mountains", mountainsCost);
+        HandleLevelSelection("Mountains", mountainsCost, mountainsLockIcon);
     }
 
-    private void HandleLevelSelection(string levelName, int cost)
+    private void HandleLevelSelection(string levelName, int cost, GameObject lockIcon)
     {
         if (LevelSelector.IsLevelUnlocked(levelName))
         {
@@ -45,9 +50,12 @@ public class ShopControl : MonoBehaviour
         {
             MasterInfo.coinCount -= cost;
             LevelSelector.UnlockLevel(levelName);
-            feedbackText.text = $"{levelName} Level purchased!";
+            feedbackText.text = $"              {levelName} Level purchased!";
             coinDisplay.text = "Coins: " + MasterInfo.coinCount;
             LevelSelector.selectedLevel = levelName;
+
+            if (lockIcon != null)
+                lockIcon.SetActive(false); // 👈 Hide lock after purchase
 
             StartCoroutine(DelayedSceneLoad("MainMenu", 2f));
         }
@@ -57,7 +65,7 @@ public class ShopControl : MonoBehaviour
         }
     }
 
-    private IEnumerator DelayedSceneLoad(string sceneName, float delaySeconds)
+    private System.Collections.IEnumerator DelayedSceneLoad(string sceneName, float delaySeconds)
     {
         yield return new WaitForSeconds(delaySeconds);
         SceneManager.LoadScene(sceneName);
