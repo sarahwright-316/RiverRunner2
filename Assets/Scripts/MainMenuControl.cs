@@ -5,25 +5,21 @@ using System.Collections;
 public class MainMenuControl : MonoBehaviour
 {
     [SerializeField] GameObject fadeOut;
-    
-    void Start(){
 
+    public void StartGame()
+    {
+        StartCoroutine(StartButton(LevelSelector.selectedLevel));
     }
 
-      void Update(){
-
-      }
-
-    public void StartGame(){
-        StartCoroutine(StartButton());
-        
-        
+    public void GoToShop()
+    {
+        StartCoroutine(StartButton("ShopScene")); // Make sure "ShopScene" is in Build Settings
     }
 
-    IEnumerator StartButton(){
+    IEnumerator StartButton(string sceneName)
+    {
         fadeOut.SetActive(true);
         yield return new WaitForSeconds(1);
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(sceneName);
     }
-
 }
