@@ -17,6 +17,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ShopScene.unity
     guid: b1ad0174cf0754f08b199b2844ad6ebe
+  - enabled: 1
+    path: Assets/Scenes/City.unity
+    guid: 638bcecbb1f542e46953a86d1be1ebd3
+  - enabled: 1
+    path: Assets/Scenes/Mountains.unity
+    guid: 97a12b48e57c20440acc9767d4099767
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
