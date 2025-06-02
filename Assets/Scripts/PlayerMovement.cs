@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     private float horizontalSpeed = 5f;
     private float rightLimit = 7.8f;
     private float leftLimit = -7.8f;
-    private float accelerationRate = 0.07f;    // Units per second added to playerSpeed
+    private float accelerationRate = 0.1f;    // Units per second added to playerSpeed
 
     void Update()
     {
