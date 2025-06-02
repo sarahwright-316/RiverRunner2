@@ -11,8 +11,8 @@ public class ShopControl : MonoBehaviour
     public GameObject cityLockIcon;
     public GameObject mountainsLockIcon;
 
-    private int cityCost = 3;
-    private int mountainsCost = 50;
+    private int cityCost = 250;
+    private int mountainsCost = 500;
 
     void Start()
     {
