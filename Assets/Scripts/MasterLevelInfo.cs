@@ -15,7 +15,14 @@ public class MasterInfo : MonoBehaviour
     }
     void Update()
     {
-        coinDisplay.GetComponent<TMPro.TMP_Text>().text = "COINS: " + coinCount;
+        if (coinCount < 1000)
+        {
+            coinDisplay.GetComponent<TMPro.TMP_Text>().text = "COINS: " + coinCount;
+        }
+        else
+        {
+            coinDisplay.GetComponent<TMPro.TMP_Text>().text = "COINS: 999+";
+        }
         DistanceDisplay.GetComponent<TMPro.TMP_Text>().text = "DISTANCE: " + DistanceCount;
 
 
