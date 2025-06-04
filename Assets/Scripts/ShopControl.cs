@@ -39,6 +39,12 @@ public class ShopControl : MonoBehaviour
         HandleLevelSelection("Mountains", mountainsCost, mountainsLockIcon);
     }
 
+    public void RefreshLockIcons()
+    {
+        cityLockIcon.SetActive(!LevelSelector.IsLevelUnlocked("City"));
+        mountainsLockIcon.SetActive(!LevelSelector.IsLevelUnlocked("Mountains"));
+    }
+
     private void HandleLevelSelection(string levelName, int cost, GameObject lockIcon)
     {
         if (LevelSelector.IsLevelUnlocked(levelName))
