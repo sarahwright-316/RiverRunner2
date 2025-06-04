@@ -1345,6 +1345,8 @@ RectTransform:
   - {fileID: 102480922}
   - {fileID: 1997099659}
   - {fileID: 769027344}
+  - {fileID: 1403423726}
+  - {fileID: 1509221474}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1571,7 +1573,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinDisplay: {fileID: 1997099658}
-  DistanceDisplay: {fileID: 1978932186}
+  DistanceDisplay: {fileID: 1509221473}
 --- !u!1 &90371546
 GameObject:
   m_ObjectHideFlags: 0
